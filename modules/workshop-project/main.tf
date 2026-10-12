@@ -14,7 +14,7 @@ resource "time_offset" "login_expires_at" {
 }
 
 data "external" "signature" {
-  program = ["node", "${path.module}/sign.js"]
+  program = ["python3", "${path.module}/sign.py"]
   query = {
     id = random_pet.project_id.id
     expires = time_offset.login_expires_at.unix

@@ -21,7 +21,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = var.aws_region
 }
 
 provider "launchdarkly" {}
@@ -30,11 +30,11 @@ provider "random" {}
 
 provider "time" {}
 
-data "terraform_remote_state" "infrastructure" {
-  backend = "s3"
-  config = {
-    bucket = "instruqt-workshop-state"
-    key    = "terraform.tfstate"
-    region = "us-east-2"
-  }
-}
+# data "terraform_remote_state" "infrastructure" {
+#   backend = "s3"
+#   config = {
+#     bucket = "instruqt-workshop-state"
+#     key    = "terraform.tfstate"
+#     region = "us-east-2"
+#   }
+# }
